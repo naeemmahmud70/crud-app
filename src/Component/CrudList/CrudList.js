@@ -1,7 +1,8 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const CrudList = ({ todos, setTodos, setUpdateTodos }) => {
-
 
     const handleComplete = (todo) => {
         setTodos(
@@ -29,18 +30,18 @@ const CrudList = ({ todos, setTodos, setUpdateTodos }) => {
                 <li className="list-item">
                     <input type="text"
                         value={todo.title}
-                        className={`list ${todo.completed? "complete" : ""}`}
+                        className={`list ${todo.completed ? "complete" : ""}`}
                         onChange={(event) => event.preventDefault()}
                     />
                     <div>
                         <button className="button-complete task-button" onClick={() => handleComplete(todo)}>
-                            <i className="fa fa-check-circle"></i>
+                            <FontAwesomeIcon className="text-color" icon={faCheckCircle} />
                         </button>
                         <button className="button-edit task-button" onClick={() => handleUpdate(todo)}>
-                            <i className="fa fa-edit"></i>
+                            <FontAwesomeIcon className="text-color" icon={faEdit} />
                         </button>
                         <button className="button-delete task-button" onClick={() => handleDelete(todo)}>
-                            <i className="fa fa-trash"></i>
+                            <FontAwesomeIcon className="text-color" icon={faTrash} />
                         </button>
                     </div>
                 </li>

@@ -33,13 +33,13 @@ const Form = ({ input, setInput, todos, setTodos, updateTodo, setUpdateTodo }) =
         else {
             updateTodos(input, updateTodo.id, updateTodo.completed)
         }
-
     }
+    
     return (
         <form onSubmit={onFormSubmit}>
             <input
                 type="text"
-                placeholder="Enter name"
+                placeholder="Enter product details"
                 className="task-input"
                 value={input}
                 onChange={onInputChange}

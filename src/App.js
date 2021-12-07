@@ -5,32 +5,39 @@ import Form from './Component/Home/Form/Form';
 import Header from './Component/Home/Header/Header';
 
 function App() {
+
   const initialState = JSON.parse(localStorage.getItem('todos')) || [];
   const [input, setInput] = useState("");
   const [todos, setTodos] = useState(initialState);
   const [updateTodo, setUpdateTodo] = useState(null);
 
-  useEffect(()=>{
+  useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
 
   return (
     <section className="container">
       <div className="app-wrapper">
-        <Header></Header>
-        <Form
-          input={input}
-          setInput={setInput}
-          todos={todos}
-          setTodos={setTodos}
-          updateTodo={updateTodo}
-          setUpdateTodo={setUpdateTodo}
-        >
-        </Form>
-        <CrudList todos={todos}
-          setTodos={setTodos}
-          setUpdateTodos={setUpdateTodo}
-        ></CrudList>
+        <div>
+          <Header></Header>
+        </div>
+        <div>
+          <Form
+            input={input}
+            setInput={setInput}
+            todos={todos}
+            setTodos={setTodos}
+            updateTodo={updateTodo}
+            setUpdateTodo={setUpdateTodo}
+          >
+          </Form>
+        </div>
+        <div>
+          <CrudList todos={todos}
+            setTodos={setTodos}
+            setUpdateTodos={setUpdateTodo}
+          ></CrudList>
+        </div>
       </div>
     </section >
   );
